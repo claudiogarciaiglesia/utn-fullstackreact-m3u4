@@ -40,6 +40,14 @@ app.get('/', async (req, res) => {
             `
             <head>
                 <link rel="stylesheet" href="styles.css">
+                <script>
+                    const setMinDate = () => {
+                        let today = new Date();
+                        let todayFormatted = today.toISOString().substring(0, 10);
+                        document.querySelector('#date_limit').setAttribute("min", todayFormatted);
+                    }
+                    window.onload = setMinDate;
+                </script>
             </head>
             <body>
                 <h1>TODO LIST</h1>
@@ -52,7 +60,7 @@ app.get('/', async (req, res) => {
                         <label for="date_limit">Due date
                         <input type="date" id="date_limit" name="date_limit">
                         </label>
-                        <button type="submit">  +  </button>
+                        <button type="submit">  Add task  </button>
                     </div>        
                 </form>
                 
@@ -67,15 +75,17 @@ app.get('/', async (req, res) => {
 
 });
 
-// app.get('/newtask', (req, res) => {
-//     res.sendFile(__dirname + '/newtask.html');
-// });
-
 app.post('/', async (req, res) => {
-    console.log(req.body);
     try {
         if (!req.body.task) {
             throw new Error('Task field is required');
+        };
+
+        let taskDueDate = new Date(req.body.date_limit);
+        let now = new Date(new Date().setUTCHours(0, 0, 0, 0));
+
+        if ((taskDueDate < now) && (req.body.date_limit != '')) {
+            throw new Error('Due date can\'t be lower than current date');
         };
 
         let task = req.body.task;
@@ -84,7 +94,6 @@ app.post('/', async (req, res) => {
         let query = `INSERT INTO todolist (task, date_limit) VALUE ("${task}", ${date_limit ? '"' + date_limit + '"' : null})`;
         queryRes = await qy(query);
 
-        console.log('tarea agregada');
         res.redirect('/');
 
     } catch (e) {

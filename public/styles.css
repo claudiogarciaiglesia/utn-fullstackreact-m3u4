@@ -72,19 +72,3 @@ button {
     color: white;
     font-weight: bolder;
 }
-
-.button {
-    border-style: none;
-    background-color: red;
-    border-radius: 100%;
-    color: red;
-    /* display: block; */
-    font-size: 2rem;
-    color: lightgrey;
-    font-weight: bolder;
-    height: 2rem;
-    margin: 1rem auto auto auto;
-    /* text-decoration: none; */
-    text-align: center;
-    width: 2rem;
-}
