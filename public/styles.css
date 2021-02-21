@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: lightgrey;
+    /* justify-content: center; */
+}
+
+h1 {
+    text-align: center;
+    margin: auto;
+    margin-bottom: 1rem;
+}
+
+.list {
+    border-bottom: solid;
+border-color: lightseagreen;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content: center;
+    width: 50%;
+}
+
+.list-row {
+    display: flex;
+    flex-direction: row;
+    margin: 5px 0;
+    /* margin: auto; */
+    /* justify-content: center; */
+    /* width:50%; */
+}
+
+.task {
+    flex: 8;
+}
+
+.due-date {
+    flex: 3;
+}
+
+.checkbox {
+    flex: 0;
+    text-align: center;
+}
+
+.new-task-container {
+    display: flex;
+    /* text-align: center; */
+    /* background-color: yellow; */
+    margin: 20 auto;
+    width: 50%;
+    /* height: auto; */
+    /* vertical-align: middle; */
+    flex-direction: row;
+}
+
+.new-task-container input {
+    /* display: inline; */
+    /* vertical-align: middle; */
+    margin: 0 40 0 0;
+}
+
+label {
+    flex: 4;
+    /* display: inline-block; */
+    /* vertical-align: middle; */
+    /* margin: 0 0 0 0; */
+}
+
+button {
+    flex: 0;
+    background-color: red;
+    color: white;
+    font-weight: bolder;
+}
+
+.button {
+    border-style: none;
+    background-color: red;
+    border-radius: 100%;
+    color: red;
+    /* display: block; */
+    font-size: 2rem;
+    color: lightgrey;
+    font-weight: bolder;
+    height: 2rem;
+    margin: 1rem auto auto auto;
+    /* text-decoration: none; */
+    text-align: center;
+    width: 2rem;
+}

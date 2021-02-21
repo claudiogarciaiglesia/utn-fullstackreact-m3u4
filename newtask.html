@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const setMinDate = () => {
+            let today = new Date();
+            let todayFormatted = today.toISOString().substring(0, 10);
+            document.querySelector('#date_limit').setAttribute("min", todayFormatted);
+        }
+        window.onload = setMinDate;
+    </script>
+</head>
+
+<body>
+    <form method="POST">
+        <label for="task">Task</label>
+        <input type="text" name="task" required="required">
+        <label for="date_limit">Due date</label>
+        <input type="date" id="date_limit" name="date_limit">
+        <button type="submit"> Add </button>
+    </form>
+</body>
+
+</html>
